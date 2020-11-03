@@ -73,7 +73,7 @@ export default class D3ScatterPlot extends LightningElement {
             .append('span')
             .style('opacity', 0)
             .attr('class', 'tooltip')
-            .style('font-size', '16px')
+            .style('font-size', '16px');
         // Three function that change the tooltip when user hover / move / leave a point
         const mouseover = (e, d) => {
             tooltip

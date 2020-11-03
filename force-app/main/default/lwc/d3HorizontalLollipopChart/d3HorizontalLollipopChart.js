@@ -65,12 +65,10 @@ export default class D3HorizontalLollipopChart extends LightningElement {
         // Y axis
         const y = d3.scaleBand()
             .range([0, height])
-            .domain(data.map(function (d) {
-                return d.Name;
-            }))
+            .domain(data.map(d => d.Name))
             .padding(1);
         svg.append('g')
-            .call(d3.axisLeft(y))
+            .call(d3.axisLeft(y));
 
 
         // Lines
@@ -78,31 +76,21 @@ export default class D3HorizontalLollipopChart extends LightningElement {
             .data(data)
             .enter()
             .append('line')
-            .attr('x1', function (d) {
-                return x(d.NumberOfEmployees);
-            })
+            .attr('x1', d => x(d.NumberOfEmployees))
             .attr('x2', x(0))
-            .attr('y1', function (d) {
-                return y(d.Name);
-            })
-            .attr('y2', function (d) {
-                return y(d.Name);
-            })
-            .attr('stroke', 'grey')
+            .attr('y1', d => y(d.Name))
+            .attr('y2', d => y(d.Name))
+            .attr('stroke', 'grey');
 
         // Circles
         svg.selectAll('mycircle')
             .data(data)
             .enter()
             .append('circle')
-            .attr('cx', function (d) {
-                return x(d.NumberOfEmployees);
-            })
-            .attr('cy', function (d) {
-                return y(d.Name);
-            })
+            .attr('cx', d => x(d.NumberOfEmployees))
+            .attr('cy', d => y(d.Name))
             .attr('r', '4')
             .style('fill', '#69b3a2')
-            .attr('stroke', 'black')
+            .attr('stroke', 'black');
     }
 }
