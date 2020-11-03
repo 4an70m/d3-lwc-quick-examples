@@ -247,3 +247,8 @@ svg.append('g')
             .on("mouseleave", mouseleave);
 ```
 This conclues the scatterplot.
+
+## Useful links
+1. https://github.com/d3/d3/blob/master/API.md
+2. https://www.d3-graph-gallery.com/index.html
+3. https://observablehq.com/explore
